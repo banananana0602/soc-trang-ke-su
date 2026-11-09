@@ -844,13 +844,14 @@
             document.getElementById('errorMsg').style.display = 'none';
         }
 
-        // Kiểm tra trạng thái đăng nhập ngay khi tải trang
-        window.onload = function() {
+        // Kiểm tra trạng thái đăng nhập ngay khi tải trang (Fix lỗi F5)
+        document.addEventListener("DOMContentLoaded", function() {
             if (sessionStorage.getItem('isLoggedIn') === 'true') {
-                openWebsite();
+                document.getElementById('authScreen').style.display = 'none';
+                document.getElementById('mainDashboard').style.display = 'flex';
+                showPage('home');
             }
-        };
-
+        });
 
         // --- EASTER EGG ---
         let tuskClickCount = 0;
