@@ -86,6 +86,23 @@
         .card-item-btn { background: #f4ece1; border: 1px solid #d5c8b0; border-radius: 6px; margin-bottom: 12px; padding: 16px 20px; font-size: 16px; font-weight: bold; color: #4a2c11; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
         .card-item-btn:hover { background: #ebdcc9; transform: translateX(4px); }
         
+        /* ĐỘI NGŨ TÁC GIẢ */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .team-card { background: #faf4eb; border: 1px solid #d5c8b0; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.2s; }
+        .team-card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+        .team-name { font-size: 18px; font-weight: bold; color: #4a2c11; margin-bottom: 5px; }
+        .team-role { font-size: 14px; color: #666; font-style: italic; }
+
+        /* FORM LIÊN HỆ */
+        .contact-container { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px; }
+        .contact-info { flex: 1; min-width: 250px; }
+        .contact-info h3 { font-size: 22px; color: #7a481c; margin-bottom: 15px; }
+        .contact-info p { font-size: 16px; color: #333; margin-bottom: 10px; }
+        .contact-form { flex: 1.5; min-width: 300px; background: #fffdf9; padding: 25px; border: 1px solid #d5c8b0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .contact-form .input-group { margin-bottom: 15px; }
+        .contact-form select, .contact-form textarea { width: 100%; padding: 12px 15px; border-radius: 6px; border: 1px solid #c8b9a6; font-size: 15px; outline: none; font-family: inherit; }
+        .contact-form textarea { resize: vertical; min-height: 100px; }
+        
         /* POPUP */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 2000; justify-content: center; align-items: center; padding: 10px; }
         .modal-box { background: #fffdf9; border: 2px solid #8c531b; width: 100%; max-width: 750px; max-height: 90vh; overflow-y: auto; border-radius: 8px; padding: 25px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); position: relative; }
@@ -103,59 +120,37 @@
         .spin-symbol { display: inline-block; animation: spinSlow 2s linear infinite; }
         @keyframes spinSlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        /* FOOTER (ĐÃ XÓA ICON MẠNG XÃ HỘI) */
-        .site-footer { background-color: #121a24; color: #aab8c2; padding: 50px 60px 30px 60px; border-top: 4px solid #8c531b; margin-top: 60px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
-        .footer-col h3 { color: #f3d4a0; font-size: 20px; margin-bottom: 18px; position: relative; padding-bottom: 8px; border-bottom: 2px solid #8c531b; display: inline-block; }
-        .footer-col p { font-size: 14px; line-height: 1.7; margin-bottom: 20px; color: #c8d3dc; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; font-size: 15px; color: #e2ecf5; display: flex; align-items: center; gap: 10px; }
-        .footer-col ul li::before { content: '👤'; font-size: 13px; }
-        .footer-bottom { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 40px; padding-top: 20px; font-size: 13px; color: #7b8b9a; }
+        /* FOOTER */
+        .site-footer { background-color: #121a24; color: #aab8c2; padding: 30px 60px; border-top: 4px solid #8c531b; margin-top: 60px; text-align: center; }
+        .footer-bottom { font-size: 15px; color: #e2ecf5; font-weight: 500; }
 
         /* --- TỐI ƯU HÓA ĐIỆN THOẠI (MOBILE RESPONSIVE) --- */
         @media(max-width: 768px) {
-            /* Header & Navbar */
             .top-header { flex-direction: column; padding: 15px 20px; gap: 15px; text-align: center; }
             .search-box { width: 100%; }
             .search-box input { width: 100%; }
             .navbar { padding: 0; justify-content: center; }
             .nav-link { padding: 12px 15px; font-size: 13px; }
-            .nav-item[style="margin-left: auto;"] { margin-left: 0 !important; } /* Đưa nút đăng xuất về hàng chung */
+            .nav-item[style="margin-left: auto;"] { margin-left: 0 !important; }
             .breadcrumb { padding: 10px 20px; text-align: center; }
-
-            /* Timeline cuộn ngang mượt mà */
             .timeline-horizontal { justify-content: flex-start; padding: 15px 20px; gap: 15px; }
             .timeline-horizontal::before { display: none; }
             .timeline-node { min-width: 100px; }
-
-            /* Nội dung chính */
             .container { padding: 0 15px; margin: 15px auto; }
             .content-card { padding: 20px 15px; }
             .article-title { font-size: 20px; }
             .article-body { font-size: 15px; text-align: left; }
-
-            /* Grids (Bảng số liệu & Thẻ) chuyển thành 1 cột */
             .stats-grid { grid-template-columns: 1fr; gap: 15px; }
             .features-grid { grid-template-columns: 1fr; gap: 15px; }
-            
-            /* Thẻ tính năng */
             .feature-card { padding: 20px; }
-
-            /* Nút bấm dài hơn cho dễ chạm */
             .btn-toggle-details, .btn-feature { width: 100%; text-align: center; padding: 12px; }
             .card-item-btn { flex-direction: column; align-items: flex-start; gap: 10px; padding: 15px; }
-            
-            /* Footer */
-            .site-footer { padding: 30px 20px 20px 20px; }
-            .footer-content { grid-template-columns: 1fr; gap: 30px; }
-            .footer-col h3 { font-size: 18px; }
-
-            /* Popup */
+            .site-footer { padding: 20px; }
             .modal-box { padding: 20px 15px; }
             .modal-title { font-size: 18px; }
             .modal-actions { flex-direction: column; }
             .btn-modal-close, .btn-modal-read { width: 100%; text-align: center; }
+            .contact-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -199,14 +194,18 @@
                 <input type="text" id="searchInput" placeholder="Tìm kiếm nhân vật, di tích, văn hóa..." oninput="handleGlobalSearch(this.value)">
             </div>
         </div>
+        
         <nav class="navbar">
             <div class="nav-item active" id="navHome"><a class="nav-link" onclick="showPage('home')">🏠 TRANG CHỦ</a></div>
             <div class="nav-item" id="navHistory"><a class="nav-link" onclick="loadStageDetail(1)">DÒNG LỊCH SỬ</a></div>
             <div class="nav-item" id="navCharacters"><a class="nav-link" onclick="showCharactersPage()">NHÂN VẬT</a></div>
             <div class="nav-item" id="navRelics"><a class="nav-link" onclick="showRelicsPage()">DI TÍCH</a></div>
             <div class="nav-item" id="navCulture"><a class="nav-link" onclick="showCulturePage()">VĂN HÓA</a></div>
+            <div class="nav-item" id="navAuthors"><a class="nav-link" onclick="showAuthorsPage()">ĐỘI NGŨ TÁC GIẢ</a></div>
+            <div class="nav-item" id="navContact"><a class="nav-link" onclick="showContactPage()">LIÊN HỆ</a></div>
             <div class="nav-item" style="margin-left: auto;"><a class="nav-link" onclick="handleLogout()" style="color: #ff9999;">ĐĂNG XUẤT</a></div>
         </nav>
+        
         <div class="breadcrumb" id="breadcrumbText">Bạn đang ở: <strong>Trang chủ</strong></div>
         <div class="timeline-horizontal" id="timelineBar">
             <div class="timeline-node" onclick="handleTimelineClick(1)"><div class="node-circle"></div><div class="node-title">Trước TK XVII</div></div>
@@ -219,23 +218,10 @@
             <div class="content-card" id="mainContentArea"></div>
         </div>
         
-        <!-- FOOTER ĐÃ XÓA ICON MẠNG XÃ HỘI -->
         <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Sóc Trăng Kể Sử</h3>
-                    <p>Sóc Trăng Kể Sử là kho tàng tri thức về lịch sử, di tích và văn hóa các dân tộc vùng đất Sóc Trăng — được biên soạn và sưu tầm từ sách, báo, và nhiều nguồn uy tín.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Người Tạo Trang Web</h3>
-                    <ul>
-                        <li>Trịnh Trường Phước</li>
-                        <li>Liêu Hiển Long</li>
-                        <li>Thạch Hiền Trung</li>
-                    </ul>
-                </div>
+            <div class="footer-bottom">
+                &copy; Copyright 2026. Thiết kế và phát triển bởi: Nhóm 1 - Lớp 12A1 - THPT Hoàng Diệu.
             </div>
-            <div class="footer-bottom">&copy; 2026 Sóc Trăng Kể Sử. Bản quyền thuộc về nhóm tác giả.</div>
         </footer>
     </div>
 
@@ -279,9 +265,6 @@
     </div>
 
     <script>
-        // Dữ liệu Nhân vật, Di tích, Văn hóa và Lịch sử giữ nguyên như bản đầy đủ trước đó
-        // (Tôi đã giữ nguyên toàn bộ logic JS ở đây để đảm bảo code chạy đúng)
-        
         // --- DỮ LIỆU NHÂN VẬT ---
         const charactersData = [
             { id: 'char1', name: "Thiều Văn Chỏi (19?? – 1972)", type: 'char', content: `<div class="article-image-box"><img src="https://i.ytimg.com/vi/AZcWKIyDR5k/maxresdefault.jpg" alt="Thiều Văn Chỏi"><div class="image-caption">Anh hùng LLVT nhân dân Thiều Văn Chỏi (Ảnh tư liệu).</div></div><p><strong>Thân thế và biệt danh:</strong> Xuất thân từ nông dân, được nhân dân và đồng đội gọi là "Thần Chỏi". Theo "Địa chí tỉnh Sóc Trăng", chỉ trong khoảng 4 tháng, ông đã tổ chức đánh địch 21 trận lớn nhỏ. Có trận một mình một súng, ông tiêu diệt 13 tên địch, làm bị thương 8 tên, bắt sống 2 tên và thu nhiều vũ khí.</p><p><strong>Lối đánh và chiến công:</strong> Lối đánh táo bạo, bất ngờ, mưu trí và khả năng luồn sâu bám địa bàn khiến quân địch khiếp sợ. Từ tháng 1/1972, ông giữ chức Huyện đội phó huyện Kế Sách, trực tiếp chỉ huy nhiều trận đánh. Trong hơn 4 năm (1968–1972), ông tham gia 152 trận lớn nhỏ, góp phần quan trọng vào phong trào đấu tranh tại địa phương.</p><p><strong>Sự hy sinh và vinh danh:</strong> Ông anh dũng hy sinh tháng 8/1972. Ngày 29/01/1996, Nhà nước truy tặng danh hiệu Anh hùng LLVT nhân dân. Tên ông được đặt cho nhiều tuyến đường, trường học tại Sóc Trăng.</p>`},
@@ -312,37 +295,189 @@
             { id: 'cul4', name: "Giao thoa văn hóa 3 dân tộc", type: 'culture', content: `<div class="article-image-box"><img src="https://tse2.mm.bing.net/th/id/OIP.byrnx1T2osG9Fkh0Pc-eAwHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Giao thoa văn hóa"><div class="image-caption">Sự hòa quyện và giao lưu văn hóa gắn kết cộng đồng ba dân tộc Kinh - Khmer - Hoa (Ảnh tư liệu).</div></div><p><strong>Tín ngưỡng và lễ hội chung:</strong> Tín ngưỡng thờ Thiên Hậu của người Hoa góp phần liên kết ba cộng đồng; người Kinh và Khmer cũng đón nhận tự nhiên các yếu tố văn hóa trong cách phối thờ. Lễ hội Phước Biển không chỉ là của riêng người Khmer mà có sự tham gia của cả người Kinh và người Hoa, tạo nên "sự thống nhất trong đa dạng" của văn hóa Sóc Trăng.</p><p><strong>Kiến trúc:</strong> Chùa Kh'Leang mang kiến trúc kết hợp văn hóa Kinh (bức cửa võng) và Hoa (hình cá chép, rồng, chữ Hán). Nhà cổ họ Lai (Vĩnh Châu) của người Hoa thể hiện sự giao thoa với quy tắc bố cục phong thủy truyền thống của người Việt Nam Bộ.</p><p><strong>Giá trị giáo dục:</strong> Sóc Trăng minh chứng cho sức mạnh đoàn kết đa dân tộc – nơi "không có xóm ấp nào chỉ có một dân tộc", biến sự tiếp biến văn hóa thành nguồn lực phát triển bền vững.</p>`}
         ];
 
-        // --- DỮ LIỆU 5 GIAI ĐOẠN LỊCH SỬ ---
+        // --- DỮ LIỆU 5 GIAI ĐOẠN LỊCH SỬ (ĐÃ THÊM ẢNH MỤC 1.2 GIAI ĐOẠN 3) ---
         const stageData = {
             1: {
                 title: "GIAI ĐOẠN 1: THỜI TIỀN SỬ – SƠ SỬ VÀ THỜI KỲ PHÙ NAM, CHÂN LẠP (TRƯỚC THẾ KỶ XVII)",
                 breadcrumb: "Trang chủ / Dòng lịch sử / Thời kỳ Tiền - Sơ sử",
                 summary: "Vùng đất Sóc Trăng từ xa xưa chịu ảnh hưởng của văn hóa Phù Nam và Chân Lạp, gắn liền với sông rạch hạ lưu sông Hậu và tên gọi gốc 'Srok Kh'leang'.",
-                content: `<p><strong>Bối cảnh chung:</strong> Vùng đất Sóc Trăng ngày nay nằm trong khu vực hạ lưu sông Hậu, thuộc vùng đất Nam Bộ cổ xưa. Trong thiên niên kỷ đầu Công nguyên, khu vực này chịu ảnh hưởng của văn hóa Phù Nam, sau đó là Chân Lạp. Tuy nhiên, do điều kiện tự nhiên và những biến động lịch sử, vùng đất này trong thời gian dài chưa được khai phá và quản lý chặt chẽ.</p><button class="btn-toggle-details" onclick="toggleStageDetails('stage1DetailsContent', 'btnToggle1')" id="btnToggle1">🔍 Khám phá nội dung chi tiết</button><div class="hidden-details" id="stage1DetailsContent"><div class="section-sub-title">Mục 1: Điều kiện tự nhiên và cư dân ban đầu</div><p><strong>1.1. Địa lý cổ và quá trình bồi tụ:</strong> Vùng đất Sóc Trăng ngày nay vào đầu Công nguyên có thể vẫn còn là vùng biển cạn hoặc đầm lầy chưa được bồi đắp hoàn toàn. Các nhà khảo cổ cho rằng vào thời kỳ hưng thịnh của văn hóa Óc Eo (thế kỷ 1–6), khu vực Trà Vinh và Sóc Trăng vẫn là vùng nước cạn ven biển, chưa có dấu vết cư trú đáng kể. Vào khoảng thế kỷ 10–15, nội địa Sóc Trăng vẫn còn bị nước biển bao phủ, chỉ một số gò đất cao như Đại Tâm, Kế Sách nổi lên trên mặt nước.</p><p><strong>1.2. Ảnh hưởng của văn hóa Phù Nam và Chân Lạp:</strong> Vùng đất Nam Bộ thời kỳ đầu chịu ảnh hưởng của vương quốc Phù Nam. Sau khi Phù Nam suy yếu và bị Chân Lạp thôn tính, về danh nghĩa vùng đất này thuộc Chân Lạp (Thủy Chân Lạp). Tuy nhiên, từ giữa thế kỷ XV, Chân Lạp suy yếu, nội bộ xung đột liên miên, không đủ khả năng kiểm soát chặt chẽ vùng đất phía Nam. Vùng Ba Thắc (bao gồm trung tâm Sóc Trăng ngày nay) về cơ bản nằm ngoài sự quản lý hiệu quả của chính quyền Chân Lạp.</p><p><strong>1.3. Cư dân Khmer bản địa:</strong> Người Khmer là một trong những cư dân sinh sống lâu đời nhất tại vùng đất này. Vào cuối thế kỷ XVIII đầu thế kỷ XIX, Sóc Trăng vẫn là vùng đất hoang vu, dân cư thưa thớt, người Khmer là thành phần dân cư quan trọng nhất của vùng.</p><div class="section-sub-title">Mục 2: Dấu vết văn hóa tiêu biểu</div><p><strong>📍 Ảnh hưởng tín ngưỡng Phù Nam – Chân Lạp:</strong> Tín ngưỡng của cư dân Phù Nam cổ bao gồm thờ thần trời, đúc tượng thần (một mặt bốn tay hoặc tám tay), thờ các biểu tượng tự nhiên như mặt trời, mặt trăng. Những yếu tố văn hóa này có ảnh hưởng sâu sắc đến truyền thống tín ngưỡng của người Khmer sau này. Phật giáo Nam tông của người Khmer đã ăn sâu bén rễ tại vùng đất này từ rất sớm, để lại nhiều ngôi chùa Khmer cổ kính cho Sóc Trăng ngày nay.</p></div>`
+                content: `
+                    <p><strong>Bối cảnh chung:</strong> Vùng đất Sóc Trăng ngày nay nằm trong khu vực hạ lưu sông Hậu, thuộc vùng đất Nam Bộ cổ xưa. Trong thiên niên kỷ đầu Công nguyên, khu vực này chịu ảnh hưởng của văn hóa Phù Nam, sau đó là Chân Lạp. Tuy nhiên, do điều kiện tự nhiên và những biến động lịch sử, vùng đất này trong thời gian dài chưa được khai phá và quản lý chặt chẽ.</p>
+                    
+                    <button class="btn-toggle-details" onclick="toggleStageDetails('stage1DetailsContent', 'btnToggle1')" id="btnToggle1">🔍 Khám phá nội dung chi tiết</button>
+
+                    <div class="hidden-details" id="stage1DetailsContent">
+                        <div class="section-sub-title">Mục 1: Điều kiện tự nhiên và cư dân ban đầu</div>
+                        <p><strong>1.1. Địa lý cổ và quá trình bồi tụ:</strong> Vùng đất Sóc Trăng ngày nay vào đầu Công nguyên có thể vẫn còn là vùng biển cạn hoặc đầm lầy chưa được bồi đắp hoàn toàn. Các nhà khảo cổ cho rằng vào thời kỳ hưng thịnh của văn hóa Óc Eo (thế kỷ 1–6), khu vực Trà Vinh và Sóc Trăng vẫn là vùng nước cạn ven biển, chưa có dấu vết cư trú đáng kể. Vào khoảng thế kỷ 10–15, nội địa Sóc Trăng vẫn còn bị nước biển bao phủ, chỉ một số gò đất cao như Đại Tâm, Kế Sách nổi lên trên mặt nước.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://cms2.doctailieu.com/uploaded/Images/Original/2023/12/13/co-so-dan-cu-xa-hoi-hinh-thanh-van-minh-phu-nam_1312092043.jpg" alt="Cơ sở dân cư xã hội hình thành văn minh Phù Nam">
+                            <div class="image-caption">Cơ sở dân cư xã hội hình thành văn minh Phù Nam (Ảnh tư liệu).</div>
+                        </div>
+                        <div class="article-image-box">
+                            <img src="https://kenhgiaovien.com/sites/default/files/styles/700xauto/public/slide12_3256.jpg" alt="Lược đồ văn hóa Phù Nam">
+                            <div class="image-caption">Lược đồ văn hóa Phù Nam và ảnh hưởng tại Nam Bộ (Ảnh tư liệu).</div>
+                        </div>
+
+                        <p><strong>1.2. Ảnh hưởng của văn hóa Phù Nam và Chân Lạp:</strong> Vùng đất Nam Bộ thời kỳ đầu chịu ảnh hưởng của vương quốc Phù Nam. Sau khi Phù Nam suy yếu và bị Chân Lạp thôn tính, về danh nghĩa vùng đất này thuộc Chân Lạp (Thủy Chân Lạp). Tuy nhiên, từ giữa thế kỷ XV, Chân Lạp suy yếu, nội bộ xung đột liên miên, không đủ khả năng kiểm soát chặt chẽ vùng đất phía Nam. Vùng Ba Thắc (bao gồm trung tâm Sóc Trăng ngày nay) về cơ bản nằm ngoài sự quản lý hiệu quả của chính quyền Chân Lạp.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://vietjack.com/lich-su-6-cd/images/ly-thuyet-bai-19-vuong-quoc-phu-nam-83428.png" alt="Vương quốc Phù Nam">
+                            <div class="image-caption">Lãnh thổ Vương quốc Phù Nam (Ảnh tư liệu).</div>
+                        </div>
+
+                        <p><strong>1.3. Cư dân Khmer bản địa:</strong> Người Khmer là một trong những cư dân sinh sống lâu đời nhất tại vùng đất này. Vào cuối thế kỷ XVIII đầu thế kỷ XIX, Sóc Trăng vẫn là vùng đất hoang vu, dân cư thưa thớt, người Khmer là thành phần dân cư quan trọng nhất của vùng.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://dangnho.com/tre_assets/uploads/2022/02/tcdn-1644425149.jpg.webp" alt="Cư dân Khmer cổ">
+                            <div class="image-caption">Cư dân Khmer bản địa sinh sống lâu đời tại vùng đất Nam Bộ (Ảnh tư liệu).</div>
+                        </div>
+
+                        <div class="section-sub-title">Mục 2: Dấu vết văn hóa tiêu biểu</div>
+                        <p><strong>📍 Ảnh hưởng tín ngưỡng Phù Nam – Chân Lạp:</strong> Tín ngưỡng của cư dân Phù Nam cổ bao gồm thờ thần trời, đúc tượng thần (một mặt bốn tay hoặc tám tay), thờ các biểu tượng tự nhiên như mặt trời, mặt trăng. Những yếu tố văn hóa này có ảnh hưởng sâu sắc đến truyền thống tín ngưỡng của người Khmer sau này. Phật giáo Nam tông của người Khmer đã ăn sâu bén rễ tại vùng đất này từ rất sớm, để lại nhiều ngôi chùa Khmer cổ kính cho Sóc Trăng ngày nay.</p>
+                    </div>
+                `
             },
             2: {
                 title: "GIAI ĐOẠN 2: KHAI PHÁ VÀ XÁC LẬP CHỦ QUYỀN (THẾ KỶ XVII – 1859)",
                 breadcrumb: "Trang chủ / Dòng lịch sử / Khai phá & Xác lập chủ quyền",
                 summary: "Từ thế kỷ XVII, lưu dân Việt, Khmer và Hoa cùng nhau khai phá. Năm 1835, vua Minh Mạng thành lập phủ Ba Xuyên, chính thức đưa Sóc Trăng vào lãnh thổ Việt Nam.",
-                content: `<p><strong>Bối cảnh chung:</strong> Từ thế kỷ XVII, cùng với chính sách khai phá phương Nam của các chúa Nguyễn, lưu dân người Việt bắt đầu di cư vào vùng đất Nam Bộ. Trải qua nhiều lần thay đổi về địa giới hành chính và sự biến động của quan hệ Việt – Khmer, vùng đất Sóc Trăng dần được đưa vào hệ thống quản lý hành chính của chính quyền Việt Nam, hoàn thành quá trình xác lập chủ quyền vào năm 1835.</p><button class="btn-toggle-details" onclick="toggleStageDetails('stage2DetailsContent', 'btnToggle2')" id="btnToggle2">🔍 Khám phá nội dung chi tiết</button><div class="hidden-details" id="stage2DetailsContent"><div class="section-sub-title">Mục 1: Quá trình khai phá và thiết lập quản lý hành chính</div><p><strong>1.1. Di dân người Việt và khai phá vùng đất Nam Bộ:</strong> Năm 1620, chúa Nguyễn Phúc Nguyên gả con gái Ngọc Vạn cho vua Chân Lạp Chey Chetta II, tạo điều kiện cho người Việt di cư. Năm 1698, chúa Nguyễn Phúc Chu cử Nguyễn Hữu Cảnh kinh lý phía Nam, thành lập phủ Gia Định, lần đầu tiên thiết lập bộ máy hành chính trên vùng đất mới.</p><p><strong>1.2. Sóc Trăng trong hệ thống hành chính:</strong> Năm 1732, chúa Nguyễn thành lập dinh Long Hồ, Sóc Trăng thuộc vùng Ba Thắc, nằm trong trấn Vĩnh Thanh. Năm 1757, vùng đất Ba Thắc được vua Chân Lạp dâng cho chúa Nguyễn, nhưng đến năm 1792 lại thuộc về Chân Lạp. <strong>Năm 1835 là mốc son quan trọng:</strong> Vua Minh Mạng sáp nhập vùng đất Ba Thắc vào tỉnh An Giang, thành lập phủ Ba Xuyên, quản lý ba huyện Phong Nhiêu, Phong Thạnh và Vĩnh Định. Từ đây, Sóc Trăng chính thức được đưa vào lãnh thổ Việt Nam.</p><p><strong>1.3. Đặc điểm cư dân:</strong> Dân cư Sóc Trăng chủ yếu gồm ba dân tộc Kinh, Khmer, Hoa cùng nhau khai phá và xây dựng vùng đất này. Người Hoa theo chân Dương Ngạn Địch đến Mỹ Tho, sau đó dần di chuyển đến vùng Trà Vinh, Sóc Trăng; người Khmer cũng theo đó đến định cư.</p><div class="section-sub-title">Mục 2: Di tích, sự kiện tiêu biểu</div><p><strong>📍 Đình thờ Bãi Xàu (trung tâm Mỹ Xuyên ngày nay):</strong> Bãi Xàu là trung tâm hành chính sớm nhất của vùng đất Sóc Trăng, hiện vẫn còn đình thờ, là chứng tích lịch sử của phủ Ba Xuyên thời nhà Nguyễn. Sau khi thành lập phủ Ba Xuyên năm 1835, chính quyền nhà Nguyễn đã cử quan lại người Kinh đến quản lý, nhưng vẫn cho phép người Khmer địa phương hưởng quyền tự trị rộng rãi.</p></div>`
+                content: `
+                    <p><strong>Bối cảnh chung:</strong> Từ thế kỷ XVII, cùng với chính sách khai phá phương Nam của các chúa Nguyễn, lưu dân người Việt bắt đầu di cư vào vùng đất Nam Bộ. Trải qua nhiều lần thay đổi về địa giới hành chính và sự biến động của quan hệ Việt – Khmer, vùng đất Sóc Trăng dần được đưa vào hệ thống quản lý hành chính của chính quyền Việt Nam, hoàn thành quá trình xác lập chủ quyền vào năm 1835.</p>
+                    
+                    <button class="btn-toggle-details" onclick="toggleStageDetails('stage2DetailsContent', 'btnToggle2')" id="btnToggle2">🔍 Khám phá nội dung chi tiết</button>
+
+                    <div class="hidden-details" id="stage2DetailsContent">
+                        <div class="section-sub-title">Mục 1: Quá trình khai phá và thiết lập quản lý hành chính</div>
+                        <p><strong>1.1. Di dân người Việt và khai phá vùng đất Nam Bộ:</strong> Năm 1620, chúa Nguyễn Phúc Nguyên gả con gái Ngọc Vạn cho vua Chân Lạp Chey Chetta II, tạo điều kiện cho người Việt di cư. Năm 1698, chúa Nguyễn Phúc Chu cử Nguyễn Hữu Cảnh kinh lý phía Nam, thành lập phủ Gia Định, lần đầu tiên thiết lập bộ máy hành chính trên vùng đất mới.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://mia.vn/media/uploads/blog-du-lich/dinh-hoa-tu-noi-gan-lien-voi-truyen-thong-yeu-nuoc-cua-nguoi-dan-soc-trang-01-1665147026.jpeg" alt="Đình Hòa Tú">
+                            <div class="image-caption">Di tích Đình Hòa Tú - Chứng tích lịch sử thời kỳ đầu khai phá (Ảnh tư liệu).</div>
+                        </div>
+
+                        <p><strong>1.2. Sóc Trăng trong hệ thống hành chính:</strong> Năm 1732, chúa Nguyễn thành lập dinh Long Hồ, Sóc Trăng thuộc vùng Ba Thắc, nằm trong trấn Vĩnh Thanh. Năm 1757, vùng đất Ba Thắc được vua Chân Lạp dâng cho chúa Nguyễn, nhưng đến năm 1792 lại thuộc về Chân Lạp. <strong>Năm 1835 là mốc son quan trọng:</strong> Vua Minh Mạng sáp nhập vùng đất Ba Thắc vào tỉnh An Giang, thành lập phủ Ba Xuyên, quản lý ba huyện Phong Nhiêu, Phong Thạnh và Vĩnh Định. Từ đây, Sóc Trăng chính thức được đưa vào lãnh thổ Việt Nam.</p>
+                        <p><strong>1.3. Đặc điểm cư dân:</strong> Dân cư Sóc Trăng chủ yếu gồm ba dân tộc Kinh, Khmer, Hoa cùng nhau khai phá và xây dựng vùng đất này. Người Hoa theo chân Dương Ngạn Địch đến Mỹ Tho, sau đó dần di chuyển đến vùng Trà Vinh, Sóc Trăng; người Khmer cũng theo đó đến định cư.</p>
+                    </div>
+                `
             },
             3: {
                 title: "GIAI ĐOẠN 3: THỜI KỲ PHÁP THUỘC (1859 – 1945)",
                 breadcrumb: "Trang chủ / Dòng lịch sử / Thời kỳ Pháp thuộc",
                 summary: "Sau khi Pháp chiếm Nam Kỳ (1867), hạt thanh tra rồi tỉnh Sóc Trăng được thành lập. Nhân dân 3 dân tộc Kinh - Khmer - Hoa kiên cường đấu tranh giành chính quyền năm 1945.",
-                content: `<p><strong>Bối cảnh chung:</strong> Năm 1867, thực dân Pháp chiếm ba tỉnh miền Tây Nam Kỳ, Sóc Trăng nằm trong số đó. Trong gần 80 năm đô hộ của Pháp, hệ thống hành chính của Sóc Trăng trải qua nhiều lần điều chỉnh, từ "hạt thanh tra" đến "tỉnh", đồng thời chứng kiến sự phát triển kinh tế nông nghiệp và những thay đổi xã hội dưới tác động của chính sách thuộc địa.</p><button class="btn-toggle-details" onclick="toggleStageDetails('stage3DetailsContent', 'btnToggle3')" id="btnToggle3">🔍 Khám phá nội dung chi tiết</button><div class="hidden-details" id="stage3DetailsContent"><div class="section-sub-title">Mục 1: Thiết lập và điều chỉnh hành chính</div><p><strong>1.1. Từ hạt thanh tra đến tỉnh:</strong> Sau khi Pháp chiếm đóng, Soái phủ Sài Gòn thành lập hạt thanh tra Bãi Xàu (ngày 15/7/1867), đổi tên thành hạt thanh tra Sóc Trăng, quản lý địa bàn phủ Ba Xuyên cũ. Năm 1876, Pháp chia Nam Kỳ thành 4 khu vực hành chính lớn, hạt thanh tra Sóc Trăng thuộc khu vực Bát Sắc (Bassac). Ngày 1/1/1900, theo nghị định của Toàn quyền Đông Dương, các hạt thanh tra được đổi tên thành "tỉnh" (Province), tỉnh Sóc Trăng chính thức xuất hiện trên bản đồ hành chính.</p><p><strong>1.2. Điều chỉnh đơn vị hành chính cấp dưới:</strong> Năm 1906, tỉnh Sóc Trăng có 3 quận: Phú Lộc, Kế Sách, Bàng Long. Năm 1916, thành lập quận Châu Thành; năm 1926, Bàng Long đổi tên thành Long Phú, Phú Lộc đổi tên thành Thạnh Trị. Năm 1930, tỉnh Sóc Trăng được chia thành 3 quận: Châu Thành, Kế Sách, Long Phú.</p><div class="section-sub-title">Mục 2: Kinh tế và xã hội</div><p><strong>2.1. Nông nghiệp và thủy lợi:</strong> Thời Pháp thuộc, Sóc Trăng là tỉnh nông nghiệp quan trọng chuyên trồng lúa gạo, chịu ảnh hưởng sâu sắc bởi chế độ đồn điền và sở hữu ruộng đất tập trung của địa chủ và tư bản Pháp. Chính quyền thuộc địa đã tiến hành một số công trình thủy lợi và giao thông, phục vụ việc khai thác và vận chuyển lúa gạo.</p><p><strong>2.2. Cơ cấu dân cư:</strong> Ba dân tộc Kinh, Khmer, Hoa tiếp tục cộng cư. Người Kinh chủ yếu làm nông nghiệp, người Khmer tập trung ở các phum sóc, người Hoa chủ yếu kinh doanh buôn bán.</p><div class="section-sub-title">Mục 3: Di tích, sự kiện tiêu biểu</div><p><strong>📍 Chùa Dơi (Mahatup, Chùa Mã Tộc):</strong> Tọa lạc tại phường 3, thành phố Sóc Trăng, được công nhận là di tích nghệ thuật cấp quốc gia năm 1999. Ngôi chùa được cho là xây dựng từ năm 1569, ban đầu có kiến trúc đơn giản bằng tre và mái lá, qua nhiều lần trùng tu mới có diện mạo như ngày nay. Đây là công trình tiêu biểu cho kiến trúc và tín ngưỡng của người Khmer, đồng thời là nơi sinh hoạt cộng đồng và tổ chức các lễ hội truyền thống của người Khmer.</p></div>`
+                content: `
+                    <p><strong>Bối cảnh chung:</strong> Năm 1867, thực dân Pháp chiếm ba tỉnh miền Tây Nam Kỳ, Sóc Trăng nằm trong số đó. Trong gần 80 năm đô hộ của Pháp, hệ thống hành chính của Sóc Trăng trải qua nhiều lần điều chỉnh, từ "hạt thanh tra" đến "tỉnh", đồng thời chứng kiến sự phát triển kinh tế nông nghiệp và những thay đổi xã hội dưới tác động của chính sách thuộc địa.</p>
+                    
+                    <button class="btn-toggle-details" onclick="toggleStageDetails('stage3DetailsContent', 'btnToggle3')" id="btnToggle3">🔍 Khám phá nội dung chi tiết</button>
+
+                    <div class="hidden-details" id="stage3DetailsContent">
+                        <div class="section-sub-title">Mục 1: Thiết lập và điều chỉnh hành chính</div>
+                        <p><strong>1.1. Từ hạt thanh tra đến tỉnh:</strong> Sau khi Pháp chiếm đóng, Soái phủ Sài Gòn thành lập hạt thanh tra Bãi Xàu (ngày 15/7/1867), đổi tên thành hạt thanh tra Sóc Trăng, quản lý địa bàn phủ Ba Xuyên cũ. Năm 1876, Pháp chia Nam Kỳ thành 4 khu vực hành chính lớn, hạt thanh tra Sóc Trăng thuộc khu vực Bát Sắc (Bassac). Ngày 1/1/1900, theo nghị định của Toàn quyền Đông Dương, các hạt thanh tra được đổi tên thành "tỉnh" (Province), tỉnh Sóc Trăng chính thức xuất hiện trên bản đồ hành chính.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://vietnamesemuseum.org/wp-content/uploads/2021/03/sc-trng-1930-plan-topographique-de-la-province-de-soctrang_13730967813_o-scaled.jpg" alt="Bản đồ địa hình Sóc Trăng 1930">
+                            <div class="image-caption">Bản đồ địa hình tỉnh Sóc Trăng năm 1930 (Ảnh tư liệu).</div>
+                        </div>
+
+                        <p><strong>1.2. Điều chỉnh đơn vị hành chính cấp dưới:</strong> Năm 1906, tỉnh Sóc Trăng có 3 quận: Phú Lộc, Kế Sách, Bàng Long. Năm 1916, thành lập quận Châu Thành; năm 1926, Bàng Long đổi tên thành Long Phú, Phú Lộc đổi tên thành Thạnh Trị. Năm 1930, tỉnh Sóc Trăng được chia thành 3 quận: Châu Thành, Kế Sách, Long Phú.</p>
+                        
+                        <!-- ĐÃ THÊM ẢNH VÀO MỤC 1.2 GIAI ĐOẠN 3 THEO YÊU CẦU -->
+                        <div class="article-image-box">
+                            <img src="https://i.postimg.cc/0Qzbt7NV/1794237901128-413540449143856450-g7149424673937224136-cf32da243d4c5ae3a2468ccad7184b46.jpg" alt="Nhà cổ Pháp Sóc Trăng">
+                            <div class="image-caption">Kiến trúc nhà cổ thời Pháp thuộc tại Sóc Trăng (Ảnh tư liệu).</div>
+                        </div>
+
+                        <div class="section-sub-title">Mục 2: Kinh tế và xã hội</div>
+                        <p><strong>2.1. Nông nghiệp và thủy lợi:</strong> Thời Pháp thuộc, Sóc Trăng là tỉnh nông nghiệp quan trọng chuyên trồng lúa gạo, chịu ảnh hưởng sâu sắc bởi chế độ đồn điền và sở hữu ruộng đất tập trung của địa chủ và tư bản Pháp. Chính quyền thuộc địa đã tiến hành một số công trình thủy lợi và giao thông, phục vụ việc khai thác và vận chuyển lúa gạo.</p>
+                        <p><strong>2.2. Cơ cấu dân cư:</strong> Ba dân tộc Kinh, Khmer, Hoa tiếp tục cộng cư. Người Kinh chủ yếu làm nông nghiệp, người Khmer tập trung ở các phum sóc, người Hoa chủ yếu kinh doanh buôn bán.</p>
+                        
+                        <div class="section-sub-title">Mục 3: Di tích, sự kiện tiêu biểu</div>
+                        <p><strong>📍 Chùa Dơi (Mahatup, Chùa Mã Tộc):</strong> Tọa lạc tại phường 3, thành phố Sóc Trăng, được công nhận là di tích nghệ thuật cấp quốc gia năm 1999. Ngôi chùa được cho là xây dựng từ năm 1569, ban đầu có kiến trúc đơn giản bằng tre và mái lá, qua nhiều lần trùng tu mới có diện mạo như ngày nay. Đây là công trình tiêu biểu cho kiến trúc và tín ngưỡng của người Khmer, đồng thời là nơi sinh hoạt cộng đồng và tổ chức các lễ hội truyền thống của người Khmer.</p>
+                    </div>
+                `
             },
             4: {
                 title: "GIAI ĐOẠN 4: SÓC TRĂNG TRONG KHÁNG CHIẾN CHỐNG MỸ (1954 – 1975)",
                 breadcrumb: "Trang chủ / Dòng lịch sử / Kháng chiến chống Mỹ",
                 summary: "Sóc Trăng giữ vị trí chiến lược quan trọng ở miền Tây Nam Bộ, nơi diễn ra nhiều phong trào đấu tranh và chiến thắng tiêu biểu của quân dân địa phương qua các giai đoạn.",
-                content: `<p><strong>Bối cảnh chung:</strong> Sóc Trăng giữ vị trí chiến lược quan trọng ở miền Tây Nam Bộ với hệ thống kênh rạch chằng chịt, là cửa ngõ giao thoa giữa các vùng căn cứ cách mạng Tây Nam Bộ với vùng biển Đông. Đây là địa bàn mà chính quyền Mỹ – Ngụy tập trung đánh phá ác liệt, đồng thời là nơi diễn ra nhiều phong trào đấu tranh và chiến thắng tiêu biểu của quân dân địa phương.</p><button class="btn-toggle-details" onclick="toggleStageDetails('stage4DetailsContent', 'btnToggle4')" id="btnToggle4">🔍 Khám phá nội dung chi tiết</button><div class="hidden-details" id="stage4DetailsContent"><div class="section-sub-title">Mục 1: Giai đoạn 1954 – 1960 — Xây dựng phong trào và Đồng Khởi</div><p><strong>1.1. Bảo vệ lực lượng và đấu tranh chính trị:</strong> Sau Hiệp định Giơ-ne-vơ (1954), Sóc Trăng là vùng chính quyền Mỹ – Ngụy tập trung đánh phá nhằm "tố cộng, diệt cộng". Tỉnh ủy Sóc Trăng rút vào hoạt động bí mật tại các vùng rạch, rừng tràm thuộc Mỹ Tú, Kế Sách và Long Phú.</p><p><strong>1.2. Phong trào Đồng Khởi (1960):</strong> Đêm 14 rạng sáng 15/9/1960, hưởng ứng lệnh Đồng Khởi của Khu ủy miền Tây, quân dân Sóc Trăng đồng loạt nổi dậy. Lực lượng vũ trang địa phương phối hợp cùng nhân dân phá rã hàng trăm "Ấp chiến lược", giải phóng nhiều xã thuộc Mỹ Tú, Thạnh Trị, Long Phú, mở rộng vùng giải phóng liên hoàn.</p><div class="article-image-box"><img src="https://i.postimg.cc/J0z5dBbw/1794055409144-1405585928597518206-g7149424673937224136-99e9d550004a40141d15b7d14d1a0b10.jpg" alt="Bộ đội hành quân"><div class="image-caption">Bộ đội chủ lực Sóc Trăng vượt đồng nước hành quân bám địa bàn kháng chiến (Ảnh tư liệu).</div></div><div class="section-sub-title">Mục 2: Giai đoạn 1961 – 1968 — Đánh bại các chiến lược và Tổng tiến công Mậu Thân</div><p><strong>2.1. Căn cứ Tỉnh ủy tại Rừng tràm Mỹ Phước (Mỹ Tú):</strong> Được xem là "trái tim" của cách mạng Sóc Trăng, nơi bảo vệ an toàn cho các cán bộ lãnh đạo, chỉ đạo phong trào đấu tranh suốt những năm tháng ác liệt nhất.</p><p><strong>2.2. Chiến thắng Chi khu Ngã Năm (1967 – 1968):</strong> Chi khu Ngã Năm là cụm đồn bót kiên cố kiểm soát giao thông đường thủy 5 nhánh sông lớn. Đầu năm 1968, lực lượng vũ trang tỉnh Sóc Trăng phối hợp với Quân khu 9 tiến công tiêu diệt và bao vây chi khu, làm rung chuyển hệ thống phòng thủ tuyến ngoài của đối phương.</p><p><strong>2.3. Tổng tiến công và nổi dậy Xuân Mậu Thân (1968):</strong> Đêm 30/1/1968, các đại đội chủ lực tỉnh cùng biệt động thị xã tiến công đồng loạt vào các mục tiêu yếu hại tại thị xã Sóc Trăng: Dinh Tỉnh trưởng, Tiêu khu Ba Xuyên, Sân bay Bãi Xàu. Trận đánh gây bất ngờ lớn và làm suy yếu bộ máy chính quyền địa phương.</p><div class="article-image-box"><img src="https://i.postimg.cc/d1m5fYp6/1794055518303-1405585928597518206-g7149424673937224136-8daa5ae4e78057c37dd61434dc0d96b9.jpg" alt="Chiến trường Sóc Trăng"><div class="image-caption">Quân ta tiêu diệt xe quân sự của địch trong một trận đánh tại chiến trường Sóc Trăng. (Ảnh: Tổ nhiếp ảnh khu 9).</div></div><div class="section-sub-title">Mục 3: Giai đoạn 1969 – 1975 — Giải phóng hoàn toàn Sóc Trăng</div><p><strong>3.1. Sự kiện Đền thờ Bác Hồ ở Cù Lao Dung (1969):</strong> Ngay sau khi Chủ tịch Hồ Chí Minh qua đời (tháng 9/1969), dù nằm trong vùng kiềm kẹp và đánh phá ác liệt của máy bay, bom đạn Mỹ, Đảng bộ và nhân dân huyện Cù Lao Dung vẫn dũng cảm xây dựng Đền thờ Bác Hồ ngay giữa lòng địch để tỏ lòng kính trọng.</p><p><strong>3.2. Đánh bại các chiến dịch "Bình định cấp tốc" (1970 – 1974):</strong> Quân dân Sóc Trăng kiên cường bám đất, bám dân, bẻ gãy hàng trăm trận càn quét của Sư đoàn 21 và lực lượng Bảo an Việt Nam Cộng hòa.</p><p><strong>3.3. Chiến dịch Hồ Chí Minh và Giải phóng Sóc Trăng (30/4/1975):</strong> Sáng 30/4/1975, khi nghe tin Dương Văn Minh tuyên bố đầu hàng, Tỉnh ủy Sóc Trăng phát lệnh tổng tiến công. Lúc 14 giờ 30 phút ngày 30/4/1975, lực lượng cách mạng chiếm Dinh Tỉnh trưởng Ba Xuyên, Sóc Trăng hoàn toàn giải phóng.</p><div class="article-image-box"><img src="https://i.postimg.cc/c1FmtXSs/1794055366413-1405585928597518206-g7149424673937224136-c94ba8055cc51be2fd5ff49e74ce03d3.jpg" alt="Tiến chiếm Dinh Tỉnh trưởng"><div class="image-caption">Lực lượng quần chúng cùng lực lượng vũ trang tỉnh chiếm Dinh Tỉnh trưởng Vĩnh Bình vào trưa ngày 30/4/1975 (Ảnh tư liệu).</div></div></div>`
+                content: `
+                    <p><strong>Bối cảnh chung:</strong> Sóc Trăng giữ vị trí chiến lược quan trọng ở miền Tây Nam Bộ với hệ thống kênh rạch chằng chịt, là cửa ngõ giao thoa giữa các vùng căn cứ cách mạng Tây Nam Bộ với vùng biển Đông. Đây là địa bàn mà chính quyền Mỹ – Ngụy tập trung đánh phá ác liệt, đồng thời là nơi diễn ra nhiều phong trào đấu tranh và chiến thắng tiêu biểu của quân dân địa phương.</p>
+                    
+                    <button class="btn-toggle-details" onclick="toggleStageDetails('stage4DetailsContent', 'btnToggle4')" id="btnToggle4">🔍 Khám phá nội dung chi tiết</button>
+
+                    <div class="hidden-details" id="stage4DetailsContent">
+                        <div class="section-sub-title">Mục 1: Giai đoạn 1954 – 1960 — Xây dựng phong trào và Đồng Khởi</div>
+                        <p><strong>1.1. Bảo vệ lực lượng và đấu tranh chính trị:</strong> Sau Hiệp định Giơ-ne-vơ (1954), Sóc Trăng là vùng chính quyền Mỹ – Ngụy tập trung đánh phá nhằm "tố cộng, diệt cộng". Tỉnh ủy Sóc Trăng rút vào hoạt động bí mật tại các vùng rạch, rừng tràm thuộc Mỹ Tú, Kế Sách và Long Phú.</p>
+                        <p><strong>1.2. Phong trào Đồng Khởi (1960):</strong> Đêm 14 rạng sáng 15/9/1960, hưởng ứng lệnh Đồng Khởi của Khu ủy miền Tây, quân dân Sóc Trăng đồng loạt nổi dậy. Lực lượng vũ trang địa phương phối hợp cùng nhân dân phá rã hàng trăm "Ấp chiến lược", giải phóng nhiều xã thuộc Mỹ Tú, Thạnh Trị, Long Phú, mở rộng vùng giải phóng liên hoàn.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://i.postimg.cc/J0z5dBbw/1794055409144-1405585928597518206-g7149424673937224136-99e9d550004a40141d15b7d14d1a0b10.jpg" alt="Bộ đội hành quân">
+                            <div class="image-caption">Bộ đội chủ lực Sóc Trăng vượt đồng nước hành quân bám địa bàn kháng chiến (Ảnh tư liệu).</div>
+                        </div>
+
+                        <div class="section-sub-title">Mục 2: Giai đoạn 1961 – 1968 — Đánh bại các chiến lược và Tổng tiến công Mậu Thân</div>
+                        <p><strong>2.1. Căn cứ Tỉnh ủy tại Rừng tràm Mỹ Phước (Mỹ Tú):</strong> Được xem là "trái tim" của cách mạng Sóc Trăng, nơi bảo vệ an toàn cho các cán bộ lãnh đạo, chỉ đạo phong trào đấu tranh suốt những năm tháng ác liệt nhất.</p>
+                        <p><strong>2.2. Chiến thắng Chi khu Ngã Năm (1967 – 1968):</strong> Chi khu Ngã Năm là cụm đồn bót kiên cố kiểm soát giao thông đường thủy 5 nhánh sông lớn. Đầu năm 1968, lực lượng vũ trang tỉnh Sóc Trăng phối hợp với Quân khu 9 tiến công tiêu diệt và bao vây chi khu, làm rung chuyển hệ thống phòng thủ tuyến ngoài của đối phương.</p>
+                        <p><strong>2.3. Tổng tiến công và nổi dậy Xuân Mậu Thân (1968):</strong> Đêm 30/1/1968, các đại đội chủ lực tỉnh cùng biệt động thị xã tiến công đồng loạt vào các mục tiêu yếu hại tại thị xã Sóc Trăng: Dinh Tỉnh trưởng, Tiêu khu Ba Xuyên, Sân bay Bãi Xàu. Trận đánh gây bất ngờ lớn và làm suy yếu bộ máy chính quyền địa phương.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://i.postimg.cc/d1m5fYp6/1794055518303-1405585928597518206-g7149424673937224136-8daa5ae4e78057c37dd61434dc0d96b9.jpg" alt="Chiến trường Sóc Trăng">
+                            <div class="image-caption">Quân ta tiêu diệt xe quân sự của địch trong một trận đánh tại chiến trường Sóc Trăng. (Ảnh: Tổ nhiếp ảnh khu 9).</div>
+                        </div>
+
+                        <div class="section-sub-title">Mục 3: Giai đoạn 1969 – 1975 — Giải phóng hoàn toàn Sóc Trăng</div>
+                        <p><strong>3.1. Sự kiện Đền thờ Bác Hồ ở Cù Lao Dung (1969):</strong> Ngay sau khi Chủ tịch Hồ Chí Minh qua đời (tháng 9/1969), dù nằm trong vùng kiềm kẹp và đánh phá ác liệt của máy bay, bom đạn Mỹ, Đảng bộ và nhân dân huyện Cù Lao Dung vẫn dũng cảm xây dựng Đền thờ Bác Hồ ngay giữa lòng địch để tỏ lòng kính trọng.</p>
+                        <p><strong>3.2. Đánh bại các chiến dịch "Bình định cấp tốc" (1970 – 1974):</strong> Quân dân Sóc Trăng kiên cường bám đất, bám dân, bẻ gãy hàng trăm trận càn quét của Sư đoàn 21 và lực lượng Bảo an Việt Nam Cộng hòa.</p>
+                        <p><strong>3.3. Chiến dịch Hồ Chí Minh và Giải phóng Sóc Trăng (30/4/1975):</strong> Sáng 30/4/1975, khi nghe tin Dương Văn Minh tuyên bố đầu hàng, Tỉnh ủy Sóc Trăng phát lệnh tổng tiến công. Lúc 14 giờ 30 phút ngày 30/4/1975, lực lượng cách mạng chiếm Dinh Tỉnh trưởng Ba Xuyên, Sóc Trăng hoàn toàn giải phóng.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://i.postimg.cc/c1FmtXSs/1794055366413-1405585928597518206-g7149424673937224136-c94ba8055cc51be2fd5ff49e74ce03d3.jpg" alt="Tiến chiếm Dinh Tỉnh trưởng">
+                            <div class="image-caption">Lực lượng quần chúng cùng lực lượng vũ trang tỉnh chiếm Dinh Tỉnh trưởng Vĩnh Bình vào trưa ngày 30/4/1975 (Ảnh tư liệu).</div>
+                        </div>
+                    </div>
+                `
             },
             5: {
                 title: "GIAI ĐOẠN 5: TỪ SAU NĂM 1975 ĐẾN NAY",
                 breadcrumb: "Trang chủ / Dòng lịch sử / Giai đoạn 1975 - Nay",
                 summary: "Sau ngày giải phóng, Sóc Trăng trải qua giai đoạn hợp nhất vào tỉnh Hậu Giang, tái lập tỉnh năm 1992 với những bước bứt phá mạnh mẽ, và từ năm 2025 chính thức sáp nhập vào TP. Cần Thơ mở rộng.",
-                content: `<div class="article-image-box"><img src="https://i.postimg.cc/m2h0PPK5/1794059908992-5238808673028660812-g7149424673937224136-2bdd2d5d3f00fd6a5512a21042183aeb.jpg" alt="Vòng xoay Hùng Vương"><div class="image-caption">Không khí rực rỡ tại trung tâm TP. Sóc Trăng hướng tới kỷ niệm 50 năm Ngày Giải phóng miền Nam.</div></div><p><strong>Bối cảnh chung:</strong> Sau ngày giải phóng miền Nam 30/4/1975, Sóc Trăng bước vào thời kỳ xây dựng và phát triển trong hòa bình. Trải qua các lần điều chỉnh địa giới hành chính, tỉnh Sóc Trăng lần lượt trải qua giai đoạn hợp nhất vào tỉnh Hậu Giang (1976–1991), tái lập tỉnh (1992) và phát triển bứt phá, trước khi sáp nhập vào TP. Cần Thơ theo Nghị quyết của Quốc hội năm 2025.</p><button class="btn-toggle-details" onclick="toggleStageDetails('stage5DetailsContent', 'btnToggle5')" id="btnToggle5">🔍 Khám phá nội dung chi tiết</button><div class="hidden-details" id="stage5DetailsContent"><div class="section-sub-title">Mục 1: Giai đoạn hợp nhất thành tỉnh Hậu Giang (1976 – 1991)</div><p><strong>1.1. Sáp nhập đơn vị hành chính (tháng 2/1976):</strong> Thực hiện chủ trương thu gọn đầu mối quản lý sau chiến tranh, tỉnh Sóc Trăng, tỉnh Cần Thơ và Thành phố Cần Thơ được hợp nhất thành một tỉnh lớn lấy tên là tỉnh Hậu Giang (tỉnh lỵ đặt tại TP. Cần Thơ). Sóc Trăng thời kỳ này đóng vai trò là một vùng huyện/thị trọng điểm về sản xuất lúa gạo của tỉnh Hậu Giang lớn.</p><p><strong>1.2. Tập trung khắc phục hậu quả chiến tranh:</strong> Nhân dân Sóc Trăng dồn sức rà phá bom mìn, khôi phục ruộng đồng, xây dựng lại hệ thống thủy lợi, khôi phục vùng lúa Ba Thắc và ổn định cuộc sống người dân các dân tộc Kinh – Khmer – Hoa.</p><div class="section-sub-title">Mục 2: Giai đoạn tái lập tỉnh Sóc Trăng và bứt phá (1992 – 2024)</div><p><strong>2.1. Tái lập tỉnh (ngày 1/1/1992):</strong> Theo Nghị quyết của Quốc hội khóa VIII, tỉnh Hậu Giang cũ được chia tách thành hai đơn vị hành chính mới là tỉnh Cần Thơ và tỉnh Sóc Trăng. Thị xã Sóc Trăng trở lại làm tỉnh lỵ của tỉnh Sóc Trăng tái lập.</p><p><strong>2.2. Chuyển mình về kinh tế – nông nghiệp:</strong> Từ một tỉnh xuất phát điểm thấp, nghèo và thuần nông, Sóc Trăng chuyển hướng đẩy mạnh nông nghiệp công nghệ cao, tự hào là quê hương của các dòng lúa gạo đặc sản nổi tiếng thế giới (ST24, ST25), đồng thời phát triển mạnh hạ tầng thủy hải sản (tôm, cá), trở thành thủ phủ xuất khẩu tôm hàng đầu Việt Nam.</p><p><strong>2.3. Hạ tầng và kinh tế biển:</strong> Phát triển hạ tầng năng lượng tái tạo (điện gió ven biển Duyên Hải), xây dựng các tuyến giao thông trọng điểm như Cao tốc Châu Đốc – Cần Thơ – Sóc Trăng và quy hoạch Cảng biển nước sâu Trần Đề.</p><p><strong>2.4. Nâng cấp đô thị:</strong> Thị xã Sóc Trăng nâng cấp thành Thành phố Sóc Trăng (2007). Đến năm 2022, Thành phố Sóc Trăng được công nhận đạt chuẩn đô thị loại II trực thuộc tỉnh.</p><div class="section-sub-title">Mục 3: Giai đoạn sáp nhập vào Thành phố Cần Thơ trực thuộc Trung ương (từ 2025 – nay)</div><p><strong>3.1. Quy mô hành chính mở rộng:</strong> Thực hiện Nghị quyết của Trung ương về sắp xếp, tinh gọn bộ máy và tinh giản đơn vị hành chính cấp tỉnh, toàn bộ diện tích tự nhiên và dân số của tỉnh Sóc Trăng, tỉnh Hậu Giang cùng TP. Cần Thơ cũ được hợp nhất thành Thành phố Cần Thơ theo Nghị quyết được Quốc hội khóa XV thông qua ngày 12/6/2025. Từ ngày 1/7/2025, chính quyền địa phương mới chính thức hoạt động; Sóc Trăng chính thức chuyển đổi mô hình hành chính trong không gian mới.</p><p><strong>3.2. Thành lập Phường Sóc Trăng:</strong> Thành phố Sóc Trăng cũ được sắp xếp lại tổ chức bộ máy, hình thành các phường mới hạt nhân (trong đó có Phường Sóc Trăng mới) trực thuộc TP. Cần Thơ.</p><p><strong>3.3. Định hướng phát triển hiện tại:</strong> Sóc Trăng giữ vai trò là cửa ngõ hướng biển, trung tâm kinh tế biển, logistics và nông nghiệp công nghệ cao quan trọng hàng đầu trong không gian phát triển chung của TP. Cần Thơ mở rộng.</p><div class="article-image-box"><img src="https://i.postimg.cc/5NGDLxVF/1794059845985_5238808673028660812-g7149424673937224136-56373c3b88eb90d2207aaa6a1f43333c.jpg" alt="Lễ chào cờ"><div class="image-caption">Các đại biểu thực hiện nghi lễ chào cờ tại buổi lễ kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước.</div></div><div class="article-image-box"><img src="https://i.postimg.cc/BvxWJRR3/1794060012683-5238808673028660812-g7149424673937224136-b825ff11ccd8a6826173267f7c524217.jpg" alt="Hội nghị Họp mặt"><div class="image-caption">Chủ tịch Quốc hội Trần Thanh Mẫn dự và chủ trì Hội nghị Họp mặt kỷ niệm 50 năm Ngày Giải phóng miền Nam tại TP. Cần Thơ (bao gồm khu vực Sóc Trăng cũ).</div></div></div>`
+                content: `
+                    <div class="article-image-box">
+                        <img src="https://i.postimg.cc/m2h0PPK5/1794059908992-5238808673028660812-g7149424673937224136-2bdd2d5d3f00fd6a5512a21042183aeb.jpg" alt="Vòng xoay Hùng Vương">
+                        <div class="image-caption">Không khí rực rỡ tại trung tâm TP. Sóc Trăng hướng tới kỷ niệm 50 năm Ngày Giải phóng miền Nam.</div>
+                    </div>
+
+                    <p><strong>Bối cảnh chung:</strong> Sau ngày giải phóng miền Nam 30/4/1975, Sóc Trăng bước vào thời kỳ xây dựng và phát triển trong hòa bình. Trải qua các lần điều chỉnh địa giới hành chính, tỉnh Sóc Trăng lần lượt trải qua giai đoạn hợp nhất vào tỉnh Hậu Giang (1976–1991), tái lập tỉnh (1992) và phát triển bứt phá, trước khi sáp nhập vào TP. Cần Thơ theo Nghị quyết của Quốc hội năm 2025.</p>
+                    
+                    <button class="btn-toggle-details" onclick="toggleStageDetails('stage5DetailsContent', 'btnToggle5')" id="btnToggle5">🔍 Khám phá nội dung chi tiết</button>
+
+                    <div class="hidden-details" id="stage5DetailsContent">
+                        <div class="section-sub-title">Mục 1: Giai đoạn hợp nhất thành tỉnh Hậu Giang (1976 – 1991)</div>
+                        <p><strong>1.1. Sáp nhập đơn vị hành chính (tháng 2/1976):</strong> Thực hiện chủ trương thu gọn đầu mối quản lý sau chiến tranh, tỉnh Sóc Trăng, tỉnh Cần Thơ và Thành phố Cần Thơ được hợp nhất thành một tỉnh lớn lấy tên là tỉnh Hậu Giang (tỉnh lỵ đặt tại TP. Cần Thơ). Sóc Trăng thời kỳ này đóng vai trò là một vùng huyện/thị trọng điểm về sản xuất lúa gạo của tỉnh Hậu Giang lớn.</p>
+                        <p><strong>1.2. Tập trung khắc phục hậu quả chiến tranh:</strong> Nhân dân Sóc Trăng dồn sức rà phá bom mìn, khôi phục ruộng đồng, xây dựng lại hệ thống thủy lợi, khôi phục vùng lúa Ba Thắc và ổn định cuộc sống người dân các dân tộc Kinh – Khmer – Hoa.</p>
+
+                        <div class="section-sub-title">Mục 2: Giai đoạn tái lập tỉnh Sóc Trăng và bứt phá (1992 – 2024)</div>
+                        <p><strong>2.1. Tái lập tỉnh (ngày 1/1/1992):</strong> Theo Nghị quyết của Quốc hội khóa VIII, tỉnh Hậu Giang cũ được chia tách thành hai đơn vị hành chính mới là tỉnh Cần Thơ và tỉnh Sóc Trăng. Thị xã Sóc Trăng trở lại làm tỉnh lỵ của tỉnh Sóc Trăng tái lập.</p>
+                        <p><strong>2.2. Chuyển mình về kinh tế – nông nghiệp:</strong> Từ một tỉnh xuất phát điểm thấp, nghèo và thuần nông, Sóc Trăng chuyển hướng đẩy mạnh nông nghiệp công nghệ cao, tự hào là quê hương của các dòng lúa gạo đặc sản nổi tiếng thế giới (ST24, ST25), đồng thời phát triển mạnh hạ tầng thủy hải sản (tôm, cá), trở thành thủ phủ xuất khẩu tôm hàng đầu Việt Nam.</p>
+                        <p><strong>2.3. Hạ tầng và kinh tế biển:</strong> Phát triển hạ tầng năng lượng tái tạo (điện gió ven biển Duyên Hải), xây dựng các tuyến giao thông trọng điểm như Cao tốc Châu Đốc – Cần Thơ – Sóc Trăng và quy hoạch Cảng biển nước sâu Trần Đề.</p>
+                        <p><strong>2.4. Nâng cấp đô thị:</strong> Thị xã Sóc Trăng nâng cấp thành Thành phố Sóc Trăng (2007). Đến năm 2022, Thành phố Sóc Trăng được công nhận đạt chuẩn đô thị loại II trực thuộc tỉnh.</p>
+
+                        <div class="section-sub-title">Mục 3: Giai đoạn sáp nhập vào Thành phố Cần Thơ trực thuộc Trung ương (từ 2025 – nay)</div>
+                        <p><strong>3.1. Quy mô hành chính mở rộng:</strong> Thực hiện Nghị quyết của Trung ương về sắp xếp, tinh gọn bộ máy và tinh giản đơn vị hành chính cấp tỉnh, toàn bộ diện tích tự nhiên và dân số của tỉnh Sóc Trăng, tỉnh Hậu Giang cùng TP. Cần Thơ cũ được hợp nhất thành Thành phố Cần Thơ theo Nghị quyết được Quốc hội khóa XV thông qua ngày 12/6/2025. Từ ngày 1/7/2025, chính quyền địa phương mới chính thức hoạt động; Sóc Trăng chính thức chuyển đổi mô hình hành chính trong không gian mới.</p>
+                        <p><strong>3.2. Thành lập Phường Sóc Trăng:</strong> Thành phố Sóc Trăng cũ được sắp xếp lại tổ chức bộ máy, hình thành các phường mới hạt nhân (trong đó có Phường Sóc Trăng mới) trực thuộc TP. Cần Thơ.</p>
+                        <p><strong>3.3. Định hướng phát triển hiện tại:</strong> Sóc Trăng giữ vai trò là cửa ngõ hướng biển, trung tâm kinh tế biển, logistics và nông nghiệp công nghệ cao quan trọng hàng đầu trong không gian phát triển chung của TP. Cần Thơ mở rộng.</p>
+                        
+                        <div class="article-image-box">
+                            <img src="https://i.postimg.cc/5NGDLxVF/1794059845985_5238808673028660812-g7149424673937224136-56373c3b88eb90d2207aaa6a1f43333c.jpg" alt="Lễ chào cờ">
+                            <div class="image-caption">Các đại biểu thực hiện nghi lễ chào cờ tại buổi lễ kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước.</div>
+                        </div>
+
+                        <div class="article-image-box">
+                            <img src="https://i.postimg.cc/BvxWJRR3/1794060012683-5238808673028660812-g7149424673937224136-b825ff11ccd8a6826173267f7c524217.jpg" alt="Hội nghị Họp mặt">
+                            <div class="image-caption">Chủ tịch Quốc hội Trần Thanh Mẫn dự và chủ trì Hội nghị Họp mặt kỷ niệm 50 năm Ngày Giải phóng miền Nam tại TP. Cần Thơ (bao gồm khu vực Sóc Trăng cũ).</div>
+                        </div>
+                    </div>
+                `
             }
         };
 
@@ -419,6 +554,84 @@
             renderList(cultureData, "SẮC MÀU VĂN HÓA KINH - KHMER - HOA", "culture");
         }
 
+        function showAuthorsPage() {
+            currentMode = 'authors';
+            updateNavActive('navAuthors');
+            document.getElementById('breadcrumbText').innerHTML = "Bạn đang ở: <strong>Đội ngũ tác giả</strong>";
+            document.getElementById('timelineBar').style.display = 'none';
+            
+            let html = `
+                <h1 class="article-title">ĐỘI NGŨ TÁC GIẢ</h1>
+                <div class="article-body">
+                    <p>Trang web "Sóc Trăng Kể Sử" là sản phẩm của tập thể Nhóm 1, Lớp 12A1, trường THPT Hoàng Diệu.</p>
+                    <div class="team-grid">
+                        <div class="team-card"><div class="team-name">Liêu Hiển Long</div><div class="team-role">(Nhóm trưởng) Biên soạn nội dung</div></div>
+                        <div class="team-card"><div class="team-name">Thạch Hiền Trung</div><div class="team-role">Tìm kiếm và tổng hợp tư liệu</div></div>
+                        <div class="team-card"><div class="team-name">Trần Thái Minh Quân</div><div class="team-role">Tìm kiếm và tổng hợp tư liệu</div></div>
+                        <div class="team-card"><div class="team-name">Đậu Đức Minh</div><div class="team-role">Kiểm tra & Hoàn thiện</div></div>
+                        <div class="team-card"><div class="team-name">Tăng Đức Thịnh</div><div class="team-role">Thiết kế trải nghiệm và giao diện</div></div>
+                        <div class="team-card"><div class="team-name">Trịnh Trường Phước</div><div class="team-role">Người thiết kế và phát triển web</div></div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('mainContentArea').innerHTML = html;
+        }
+
+        function showContactPage() {
+            currentMode = 'contact';
+            updateNavActive('navContact');
+            document.getElementById('breadcrumbText').innerHTML = "Bạn đang ở: <strong>Liên hệ</strong>";
+            document.getElementById('timelineBar').style.display = 'none';
+            
+            let html = `
+                <h1 class="article-title">LIÊN HỆ VỚI CHÚNG TÔI</h1>
+                <div class="article-body">
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Bạn muốn tìm hiểu thêm về lịch sử, cần giải đáp thắc mắc hoặc có góp ý?</h3>
+                            <p>Hãy gửi lời nhắn cho chúng tôi.</p>
+                            <br>
+                            <p><strong>Email:</strong> example@gmail.com</p>
+                            <p><strong>Địa chỉ:</strong> THPT Hoàng Diệu, Sóc Trăng</p>
+                        </div>
+                        <div class="contact-form">
+                            <form onsubmit="handleContactSubmit(event)">
+                                <div class="input-group">
+                                    <label>Họ và tên</label>
+                                    <input type="text" placeholder="Nhập họ và tên" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Email</label>
+                                    <input type="email" placeholder="Nhập địa chỉ email" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Chủ đề</label>
+                                    <select required>
+                                        <option value="">-- Chọn chủ đề --</option>
+                                        <option value="gopy">Góp ý nội dung</option>
+                                        <option value="hoiDap">Hỏi đáp lịch sử</option>
+                                        <option value="khac">Vấn đề khác</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Nội dung câu hỏi</label>
+                                    <textarea placeholder="Nhập nội dung..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Gửi lời nhắn</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('mainContentArea').innerHTML = html;
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            alert("Cảm ơn bạn đã gửi lời nhắn! Chúng tôi sẽ phản hồi sớm nhất có thể.");
+            event.target.reset();
+        }
+
         function renderList(list, pageTitle, typeCode) {
             let html = `<h1 class="article-title">${pageTitle}</h1><div class="article-body"><p>Nhấp vào từng mục để xem thông tin chi tiết:</p>`;
             list.forEach(item => {
@@ -444,6 +657,22 @@
 
         function handleGlobalSearch(keyword) {
             const query = keyword.trim().toLowerCase();
+            // --- EASTER EGG: MÈO SIMMY ---
+            if (query === 'mèo simmy' || query === 'meo simmy') {
+                currentMode = 'search-results';
+                document.getElementById('timelineBar').style.display = 'none';
+                document.getElementById('breadcrumbText').innerHTML = `Bạn đang ở: <strong>Kết quả tìm kiếm cho "${keyword}"</strong>`;
+                
+                document.getElementById('mainContentArea').innerHTML = `
+                    <div style="text-align: center; padding: 30px; background-color: #fffdf9; border: 2px dashed #8c531b; border-radius: 8px; margin: 20px auto; max-width: 600px;">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.wz1StbSCz0FtE-dIw8_EvwHaJN?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Mèo Simmy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #d5c8b0;">
+                        <h3 style="color: #8c531b; margin-top: 20px;">Meo meo! Bạn tìm gì mà lại gõ "mèo simmy" ở đây thế? 🐱</h3>
+                        <p style="color: #666; margin-top: 10px;">Trang web này là lịch sử Sóc Trăng chứ không phải trại mèo đâu nha! Nhưng chúc bạn một ngày tốt lành!</p>
+                    </div>
+                `;
+                return; 
+            }
+            // -----------------------------
             if (query === "") {
                 if (currentMode === 'characters') showCharactersPage();
                 else if (currentMode === 'relics') showRelicsPage();
@@ -539,7 +768,7 @@
             if (elem) elem.classList.add('active');
         }
 
-        // --- XỬ LÝ ĐĂNG NHẬP / ĐĂNG KÝ ---
+        // --- XỬ LÝ ĐĂNG NHẬP / ĐĂNG KÝ & LƯU PHIÊN ---
         function getUsersData() {
             const users = localStorage.getItem('registered_users');
             return users ? JSON.parse(users) : [];
@@ -586,9 +815,17 @@
             const user = document.getElementById('username').value.trim();
             const pass = document.getElementById('password').value.trim();
             const errorMsg = document.getElementById('errorMsg');
-            if (user === "mastergod" && pass === "244466666") { openWebsite(); return; }
+            
+            if (user === "mastergod" && pass === "244466666") { 
+                sessionStorage.setItem('isLoggedIn', 'true');
+                openWebsite(); 
+                return; 
+            }
             let users = getUsersData();
-            if (users.find(u => u.username === user && u.password === pass)) { openWebsite(); }
+            if (users.find(u => u.username === user && u.password === pass)) { 
+                sessionStorage.setItem('isLoggedIn', 'true');
+                openWebsite(); 
+            }
             else { errorMsg.style.display = 'block'; }
         }
 
@@ -599,12 +836,21 @@
         }
 
         function handleLogout() {
+            sessionStorage.removeItem('isLoggedIn'); // Xóa phiên đăng nhập
             document.getElementById('mainDashboard').style.display = 'none';
             document.getElementById('authScreen').style.display = 'flex';
             document.getElementById('username').value = "";
             document.getElementById('password').value = "";
             document.getElementById('errorMsg').style.display = 'none';
         }
+
+        // Kiểm tra trạng thái đăng nhập ngay khi tải trang
+        window.onload = function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                openWebsite();
+            }
+        };
+
 
         // --- EASTER EGG ---
         let tuskClickCount = 0;
@@ -625,6 +871,7 @@
                 tuskTimer = setTimeout(() => { tuskClickCount = 0; }, 2000);
             }
         }
+
 
         function closeTuskModal() { document.getElementById('tuskModal').style.display = 'none'; }
     </script>
